@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mywangyu/SpringcloudConfig #配置git仓库的地址（最后不需要带/，否则会出现：No custom http config found for URL: XXX）
+          search-paths: respo  # git仓库地址下的相对搜索地址（可用使用通配符），可以配置多个，用,分割。可以{application}实现按应用查配置
+          username:  # git仓库的账号（公开仓库无需账号信息）
+          password:  # git仓库的密码（公开仓库无需账号信息）
+      label: master #git默认分支
+  #activemq:
+    #broker-url: tcp://localhost:61616
+    #user: admin
+    #password: admin
+    #pool:
+      #enabled: false
+      rabbitmq:
+          host: #mq配置
+          port: 5672
+          username: guest
+          password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+server:
+  port: 8888
+
+

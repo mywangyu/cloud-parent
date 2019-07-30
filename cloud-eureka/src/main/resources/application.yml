@@ -1,0 +1,12 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #是否注册到eurekaserver
+    registerWithEureka: false
+    #是否拉取信息，如果开启，可能会有报错，不影响。原因是service初始化未完成，节点还没生成，客户端拉取信息执行了。
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
